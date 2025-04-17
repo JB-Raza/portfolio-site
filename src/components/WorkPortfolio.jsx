@@ -75,7 +75,7 @@ export default function WorkPortfolio() {
   return (
     <>
       {/* recent work */}
-      <div className="container-fluid m-0 py-2">
+      <div className="container-fluid my-0 px-0 px-sm-3 py-2">
         <div className="my-5 py-4 mx-auto px-0">
 
           <MainHeading value={"My Recent Works"} className={"text-center"} />
@@ -94,8 +94,8 @@ export default function WorkPortfolio() {
           </div>
 
           {/* my Works */}
-          <div className="container-fluid m-0 w-100">
-            <div className="row portfolio-row position-relative">
+          <div className="container-fluid m-0 w-100 p-0 mx-auto">
+            <div className="row portfolio-row position-relative p-0">
               <div className={`bg-overlay ${listings.length > 0 ? "d-block" : "d-none"}`}></div>
               {/* card column 1 */}
               {(listings || []).map((work, index) => (

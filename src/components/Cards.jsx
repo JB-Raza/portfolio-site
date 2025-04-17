@@ -24,8 +24,6 @@ export const ServiceCard = ({ index, title, className }) => {
         })
     }, [])
 
-    // card hover effect ...
-    
     return (
         <div ref={cardRef} className={`row service-card py-2 py-lg-4 justify-content-center d-flex ${className}`}>
             <div className="col d-flex align-items-center gap-2 gap-lg-3 theme-text-color">
@@ -39,7 +37,7 @@ export const ServiceCard = ({ index, title, className }) => {
                 </button>
             </div>
             <div className="col col-12 col-md-5 col-lg-6 px-md-2">
-                <p className='theme-text-color small-font'>Conducting qualitative and quantitative research to understand user needs, behaviors, and pain points. Utilizing methods...</p>
+                <p className='theme-text-color small-font  truncate-2-lines'>Conducting qualitative and quantitative research to understand user needs, behaviors, and pain points. Utilizing methods...</p>
             </div>
             {/* hide under md */}
             <div className="col col-1 d-none d-md-flex align-items-center justify-content-center">
@@ -74,7 +72,7 @@ export const WorkCard = ({ workData }) => {
     }, [])
 
     return (
-        <div ref={workCardRef} className="col col-12 col-md-6 p-4">
+        <div ref={workCardRef} className="col col-12 col-md-6 py-3 p-sm-3">
             <div className="card border-0 rounded-3 position-relative">
                 <img src={workData.image} alt="" className="img-fluid" />
                 <div className="card-popup">
@@ -163,7 +161,7 @@ export const SkillCard = ({ skillData }) => {
 // testinomial
 export const TestinomialCard = ({ testinomial }) => {
     return (
-        <div className="card testinomial-card p-3 border-0 rounded-4">
+        <div className="card testinomial-card p-3 rounded-4">
             <div className="card-img-top">
                 <img className='img-fluid' src={testinomial.image} alt="image" />
             </div>

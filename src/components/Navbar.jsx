@@ -94,7 +94,7 @@ export default function Navbar (){
           {/* btns */}
           <div className="d-flex align-items-center ms-auto gap-0 gap-sm-1 gap-md-2">
             {/* hire me btn */}
-            <button className="btn gradient-btn rounded-pill border-0 m-0 text-white" type="submit">Hire me!</button>
+            <button className="btn gradient-btn d-none d-sm-inline rounded-pill border-0 m-0 text-white" type="submit">Hire me!</button>
             {/* toggler btn */}
             {collapsed ?
               <button

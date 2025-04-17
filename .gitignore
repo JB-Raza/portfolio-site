@@ -24,7 +24,7 @@ dist-ssr
 *.sw?
 
 
-# animations left
-    # values shuffle in hero
-    # smooth transitioning between navlinks in recentWork
-
+#Issues:
+# overflowing something and navbar becomes out of viewport width as we open the navbar-collapse in mobile devices.
+# service card heading fontsize management and text wrapping so the icon doesn't wrap on next line.
+# recent work navbar responsiveness

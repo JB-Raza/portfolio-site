@@ -37,13 +37,13 @@ export default function Testimonial() {
     <div className="container-fluid py-2 w-100 bg-black">
       <div className="row testinomial-section mx-auto g-5">
         {/* col 1 */}
-        <div className="col col-12 col-xl-6 px-4">
+        <div className="col col-12 col-xl-6 px-2">
           <MainHeading value={"My Client's Stories"} />
           <p ref={paraRef} className="normal-font theme-text-color">Empowering people in new a digital journey with my super services</p>
         </div>
 
         {/* col 2 swiper */}
-        <div className="col col-12 col-xl-6">
+        <div className="col col-12 col-xl-6 p-0 px-sm-2">
 
           <Swiper
             modules={[Pagination, A11y, Autoplay]}

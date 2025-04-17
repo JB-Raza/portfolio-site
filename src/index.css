@@ -35,6 +35,15 @@ body::before {
   box-shadow: -100px 100px 200px 150px var(--global-color-primary) !important;
 }
 
+/* truncate text */
+.truncate-2-lines {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;        /* Number of lines to show */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 /* navbar */
 
 .navbar .container-fluid {
@@ -335,7 +344,8 @@ body::before {
   position: absolute;
   /* width: 100px; */
   left: 8px;
-  height: 75%;
+  height: 40px !important;
+  max-height: 40px !important;
   margin: auto 0;
   z-index: -1;
   background: var(--linear-gradient-theme-color) !important;
@@ -490,7 +500,7 @@ body::before {
   background: var(--global-dark-purple-secondary) !important;
   min-width: 230px !important;
   height: 100% !important;
-  min-height: 400px !important;
+  min-height: 430px !important;
 }
 
 .testinomial-card .card-img-top img {
