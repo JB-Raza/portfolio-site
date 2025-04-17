@@ -26,6 +26,5 @@ dist-ssr
 
 # animations left
     # values shuffle in hero
-    # smooth hover over service card
     # smooth transitioning between navlinks in recentWork
 

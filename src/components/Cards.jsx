@@ -24,6 +24,8 @@ export const ServiceCard = ({ index, title, className }) => {
         })
     }, [])
 
+    // card hover effect ...
+    
     return (
         <div ref={cardRef} className={`row service-card py-2 py-lg-4 justify-content-center d-flex ${className}`}>
             <div className="col d-flex align-items-center gap-2 gap-lg-3 theme-text-color">
@@ -32,7 +34,7 @@ export const ServiceCard = ({ index, title, className }) => {
             </div>
             {/* hide over md */}
             <div className="col col-1 d-flex d-md-none align-items-center justify-content-center">
-                <button className='btn read-more-btn fs-3'>
+                <button aria-label='learn-more' className='btn read-more-btn fs-3'>
                     <i className="fa-solid fa-arrow-up color-primary"></i>
                 </button>
             </div>
@@ -41,7 +43,7 @@ export const ServiceCard = ({ index, title, className }) => {
             </div>
             {/* hide under md */}
             <div className="col col-1 d-none d-md-flex align-items-center justify-content-center">
-                <button className='btn read-more-btn fs-3'>
+                <button aria-label='learn-more' className='btn read-more-btn fs-3'>
                     <i className="fa-solid fa-arrow-up color-primary"></i>
                 </button>
             </div>

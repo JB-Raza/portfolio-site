@@ -10,7 +10,7 @@ gsap.registerPlugin(ScrollTrigger)
 
 export default function WorkPortfolio() {
 
-  // gsap
+  // animating work navbar
   useGSAP(() => {
     gsap.from(".work-navbar", {
       y: 40,
@@ -27,15 +27,49 @@ export default function WorkPortfolio() {
 
   const [activeFilter, setActiveFilter] = useState("")
   const [listings, setListings] = useState(workPortfolioData)
+  const [navlinkWidth, setNavlinkWidth] = useState([])
+
+  const navlinkRefs = useRef([])
+  const activeNavRef = useRef()
 
 
-  const handleFilterChange = (filter) => {
-    if (activeFilter == "all" || activeFilter == "") setListings(workPortfolioData)
-    else setListings(workPortfolioData.filter((listing) => listing.type == filter))
-  }
+  // calculating width of each navlink
   useEffect(() => {
-    handleFilterChange(activeFilter)
-  }, [activeFilter])
+    const widths = navlinkRefs.current.map((navlink) => navlink?.getBoundingClientRect().width || 0)
+    setNavlinkWidth(widths)
+
+    const defaultIndex = navlinks.findIndex(
+      (link) => link.toLowerCase() === "all"
+    );
+  
+    if (defaultIndex !== -1 && navlinkRefs.current[defaultIndex]) {
+      const activeLink = navlinkRefs.current[defaultIndex];
+      gsap.set(activeNavRef.current, {
+        left: activeLink.offsetLeft,
+        width: widths[defaultIndex],
+      });
+    }
+
+  }, [navlinks])
+
+  // handle click on navlink of work row
+  const handleNavlinkClick = (index) => {
+    let filter = navlinks[index].toLowerCase()
+    setActiveFilter(filter);
+
+    if (filter == "all" || filter == "") setListings(workPortfolioData)
+    else setListings(workPortfolioData?.filter((listing) => listing.type == filter))
+
+    const activeLink = navlinkRefs.current[index];
+    if (activeLink) {
+      gsap.to(activeNavRef.current, {
+        left: activeLink.offsetLeft,
+        width: navlinkWidth[index],
+        duration: 0.3,
+        ease: "power2.out",
+      });
+    }
+  };
 
 
   return (
@@ -48,11 +82,14 @@ export default function WorkPortfolio() {
 
           <div className="mx-auto work-navbar bg-black my-5 rounded-pill px-0 py-2">
             <ul className='navbar-nav p-0 d-flex flex-row flex-wrap justify-content-center gap-1 text-white'>
-              <li onClick={() => setActiveFilter('all')} className={`px-4 py-2 rounded-pill fw-semibold ${activeFilter == "" || activeFilter == "all" ? "active-work-navlink" : ""}`}>All</li>
-              <li onClick={() => setActiveFilter('app')} className={`px-4 py-2 rounded-pill fw-semibold ${activeFilter == "app" ? "active-work-navlink" : ""}`}>Apps</li>
-              <li onClick={() => setActiveFilter('branding')} className={`px-4 py-2 rounded-pill fw-semibold ${activeFilter == "branding" ? "active-work-navlink" : ""}`}>Branding</li>
-              <li onClick={() => setActiveFilter('content')} className={`px-4 py-2 rounded-pill fw-semibold ${activeFilter == "content" ? "active-work-navlink" : ""}`}>Content</li>
-              <li onClick={() => setActiveFilter('ui/ux')} className={`px-4 py-2 rounded-pill fw-semibold ${activeFilter == "ui/ux" ? "active-work-navlink" : ""}`}>UX/UI</li>
+              <div ref={activeNavRef} className="active-work-navlink rounded-pill"></div>
+              {(navlinks || []).map((navlink, index) => (
+                <li
+                  ref={(el) => (navlinkRefs.current[index] = el)}
+                  key={index}
+                  onClick={() => handleNavlinkClick(index)}
+                  className={`px-4 py-2 rounded-pill fw-semibold`}>{navlink}</li>
+              ))}
             </ul>
           </div>
 
@@ -80,3 +117,5 @@ const workPortfolioData = [
   { title: "Sebastian", tagline: "Project was about Precision and information", image: "./portfolio/portfolio-3.webp", type: "ui/ux" },
   { title: "Mochnix", tagline: "Project was about Precision and information", image: "./portfolio/portfolio-4.webp", type: "branding" },
 ]
+
+const navlinks = ["All", "App", "Branding", "Content", "UI/UX"]

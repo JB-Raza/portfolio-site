@@ -272,14 +272,32 @@ body::before {
   padding: 100px 10px !important;
 }
 
+#services-row{
+  position: relative;
+}
+#services-row .bg-overlay{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: calc(100% / 4);
+  background: var(--linear-gradient-theme-color) !important;
+  z-index: 9;
+  transition: all 0.3s ease;
+}
+
 .service-card {
   transition: all 0.3s ease;
   border-bottom: 1px solid var(--global-color-secondary) !important;
+  position: relative;
+  background-color: transparent;
+  z-index: 10;
 }
 
-.service-card:hover {
+/* .service-card:hover {
   background: var(--linear-gradient-theme-color) !important;
-}
+} */
+ 
 
 .service-card:hover .read-more-btn i {
   color: white !important;
@@ -310,7 +328,19 @@ body::before {
   justify-content: center;
   width: 100%;
   max-width: 530px !important;
+  position: relative;
+  overflow: hidden;
 }
+.active-work-navlink {  
+  position: absolute;
+  /* width: 100px; */
+  left: 8px;
+  height: 75%;
+  margin: auto 0;
+  z-index: -1;
+  background: var(--linear-gradient-theme-color) !important;
+}
+
 
 .portfolio-row {
   max-width: 1400px;
