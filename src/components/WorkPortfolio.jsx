@@ -64,6 +64,7 @@ export default function WorkPortfolio() {
     if (activeLink) {
       gsap.to(activeNavRef.current, {
         left: activeLink.offsetLeft,
+        top: activeLink.offsetTop,
         width: navlinkWidth[index],
         duration: 0.3,
         ease: "power2.out",

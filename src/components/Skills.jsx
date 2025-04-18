@@ -8,7 +8,7 @@ export default function Skills() {
       <div className=" my-5 mx-auto p-0">
 
         <MainHeading value={"My Skills"} className={"text-center"} />
-        <Tagline className={"text-center"} />
+        <Tagline className={"text-center mb-5"} />
 
 
         <div className="d-flex gap-3 gap-md-4 justify-content-center flex-wrap">

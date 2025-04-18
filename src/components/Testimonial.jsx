@@ -34,7 +34,7 @@ export default function Testimonial() {
   })
 
   return (
-    <div className="container-fluid py-2 w-100 bg-black">
+    <div className="container-fluid py-2 w-100 bg-black overflow-hidden">
       <div className="row testinomial-section mx-auto g-5">
         {/* col 1 */}
         <div className="col col-12 col-xl-6 px-2">

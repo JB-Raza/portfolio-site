@@ -402,6 +402,8 @@ body::before {
 
 .qualification-section {
   background-color: var(--global-color-black-shade) !important;
+}
+.qualification-section > div{
   max-width: 1400px !important;
 }
 
@@ -519,10 +521,10 @@ body::before {
 .blog-card {
   min-width: 230px !important;
   max-width: 400px !important;
-  border-radius: 10px !important;
+  border-radius: 25px !important;
   transition: all 0.3s ease;
+  padding: 0px !important;
   position: relative !important;
-  border-radius: 20px !important;
   overflow: hidden;
   transition: all 0.3s ease;
 }

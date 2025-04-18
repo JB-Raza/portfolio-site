@@ -3,12 +3,12 @@ import { HashLink as Link } from 'react-router-hash-link'
 
 // gsap
 import gsap from 'gsap'
-import {useGSAP} from '@gsap/react'
-import {ScrollTrigger} from 'gsap/ScrollTrigger'
+import { useGSAP } from '@gsap/react'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 gsap.registerPlugin(ScrollTrigger)
 
-export default function Navbar (){
+export default function Navbar() {
   const navbarRef = useRef();
   let [collapsed, setCollapsed] = useState(true)
   const [isScrolled, setIsScrolled] = useState(false);
@@ -44,31 +44,31 @@ export default function Navbar (){
 
   // navbar collapse height animation
 
-    useEffect(() => {
-      if(!collapsed){
+  useEffect(() => {
+    if (!collapsed) {
       gsap.to(".navbar-collapse", {
         height: window.innerHeight,
         duration: 1,
         ease: "power1.out"
       })
     }
-    else{
+    else {
       gsap.to(".navbar-collapse", {
-        height: 0,
+        height: "100%",
         duration: 1,
         ease: "power1.out",
       })
     }
-    }, [collapsed])
-  
+  }, [collapsed])
+
 
   const scrollWithOffset = (el) => {
     const yCoordinate = el.getBoundingClientRect().top + window.pageYOffset;
-    window.scrollTo({ top: yCoordinate - 100});
+    window.scrollTo({ top: yCoordinate - 100 });
   };
 
   return (
-    <nav ref={navbarRef} className={`navbar navbar-expand-lg p-0 my-3 px-xl-5 ${isScrolled ? "scrolled" : ""}`}>
+    <nav ref={navbarRef} className={`navbar navbar-expand-lg p-0 my-3 overflow-hidden px-xl-5 ${isScrolled ? "scrolled" : ""}`}>
       <div className="container-fluid w-100 mx-auto d-flex justify-content-between py-0">
         <a className="navbar-brand py-3" href="#">
           <img src="./logo-primary.webp" alt="logo" className="img-fluid logo w-100" />
@@ -76,7 +76,7 @@ export default function Navbar (){
         <address className="email focus-text my-auto fw-semibold ms-lg-1 ms-xl-2 me-auto text-white d-none d-md-block">
           mail@garolddesign.com
         </address>
-        <div className="d-flex nav-item-container m-0 p-0">
+        <div className="d-flex nav-item-container align-items-center m-0 p-0">
           <div className="collapse w-md-100 me-lg-4 ms-auto navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav gap-lg-3 gap-xl-4 mb-2 ms-auto mb-lg-0">
               <li onClick={() => setCollapsed(true)} className="nav-item mx-1">
@@ -85,27 +85,27 @@ export default function Navbar (){
                 >Services</Link>
               </li>
               <li onClick={() => setCollapsed(true)} className="nav-item mx-1">
-              <Link smooth scroll={scrollWithOffset} to={'#portfolio'}
+                <Link smooth scroll={scrollWithOffset} to={'#portfolio'}
                   className="nav-link text-white active fw-semibold"
                 >Works</Link>
               </li>
               <li onClick={() => setCollapsed(true)} className="nav-item mx-1">
-              <Link smooth scroll={scrollWithOffset} to={'#resume'}
+                <Link smooth scroll={scrollWithOffset} to={'#resume'}
                   className="nav-link text-white active fw-semibold"
                 >Resume</Link>
               </li>
               <li className="nav-item mx-1">
-              <Link smooth scroll={scrollWithOffset} to={'#skills'}
+                <Link smooth scroll={scrollWithOffset} to={'#skills'}
                   className="nav-link text-white active fw-semibold"
                 >Skills</Link>
               </li>
               <li className="nav-item mx-1">
-              <Link smooth scroll={scrollWithOffset} to={'#testimonial'}
+                <Link smooth scroll={scrollWithOffset} to={'#testimonial'}
                   className="nav-link text-white active fw-semibold"
                 >Testinomials</Link>
               </li>
               <li className="nav-item mx-1">
-              <Link smooth scroll={scrollWithOffset} to={'#contact'}
+                <Link smooth scroll={scrollWithOffset} to={'#contact'}
                   className="nav-link text-white active fw-semibold"
                 >Contact</Link>
               </li>
@@ -115,7 +115,7 @@ export default function Navbar (){
           {/* btns */}
           <div className="d-flex align-items-center ms-auto gap-0 gap-sm-1 gap-md-2">
             {/* hire me btn */}
-            <button className="btn gradient-btn d-none d-sm-inline rounded-pill border-0 m-0 text-white" type="submit">Hire me!</button>
+            <button className="btn hireMe-btn gradient-btn rounded-pill border-0 m-0 text-white" type="submit">Hire me!</button>
             {/* toggler btn */}
             {collapsed ?
               <button

@@ -7,7 +7,7 @@ import ScrollToTopIcon from './components/ScrollToTopIcon.jsx'
 function App() {
   return (
     <BrowserRouter>
-      <div className='overflow-hidden'>
+      <div>
         {/* Navbar */}
         <Navbar />
         <ScrollToTopIcon />

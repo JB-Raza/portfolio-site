@@ -10,6 +10,7 @@ gsap.registerPlugin(ScrollTrigger)
 export default function Contact() {
 
   const [isSelectOpen, setIsSelectOpen] = useState(false)
+  const [selectVal, setSelectVal] = useState("")
 
   // contact info animation
   useGSAP(() => {
@@ -118,15 +119,16 @@ useGSAP(() => {
             <div ref={selectRef} className="custom-select mb-3 position-relative">
               <input type="button"
               onClick={() => setIsSelectOpen(prev => !prev)}
-              className="form-control text-start select py-4" id="category" value={"-Please choose an option-"} aria-describedby="category" />
+              className="form-control text-start select py-4" id="category"
+              value={selectVal == ""? "-Please choose an option-" : selectVal} aria-describedby="category" />
               <i className={`fa fa-angle-down small-text theme-text-color select-icon-rotate`}></i>
-              <input type="hidden" />
+              <input value={selectVal} type="hidden" />
               <ul className={`custom-dropdown bg-white rounded-2 flex-column gap-2 px-3 py-2 ${isSelectOpen? "d-flex":"d-none"}`}>
-                <li className='fw-bold'>-Please choose an option-</li>
-                <li className=''>Branding Design</li>
-                <li>Web Design</li>
-                <li>UI/UX Design</li>
-                <li>App Design</li>
+                <li onClick={() => setSelectVal("")} className='fw-bold'>-Please choose an option-</li>
+                <li onClick={() => setSelectVal("Branding Design")} className=''>Branding Design</li>
+                <li onClick={() => setSelectVal("Web Design")}>Web Design</li>
+                <li onClick={() => setSelectVal("UI/IX Design")}>UI/UX Design</li>
+                <li onClick={() => setSelectVal("App Design")}>App Design</li>
               </ul>
             </div>
             <div className="mb-3">

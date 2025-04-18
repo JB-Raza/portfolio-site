@@ -3,7 +3,7 @@ import React from 'react'
 export default function Footer() {
   return (
     <div className='container-fluid'>
-      <footer className=" d-flex flex-column align-items-center">
+      <footer className=" d-flex flex-column mx-auto align-items-center">
         <img src="./logo-primary.webp" alt="" className="img-fluid logo" />
 
         <div className="navbar mt-4">

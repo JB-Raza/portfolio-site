@@ -7,7 +7,7 @@ import { MainHeading } from './elementComp.js'
 export default function Qualification() {
     return (
         <div className="qualification-section container-fluid mx-auto py-2 px-0 px-md-2">
-            <div className="my-5 py-4 px-0">
+            <div className="my-5 py-4 px-0 mx-auto">
                 <div className="row w-100 m-0">
                     {/* col 1 */}
                     <div className="col col-12 col-md-6 m-0">

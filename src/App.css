@@ -217,3 +217,8 @@ ul{
     max-width: 50% !important;
   }
 }
+@media screen and (max-width: 330px) {
+  .hireMe-btn{
+    display: none !important;
+  }
+}
