@@ -60,7 +60,7 @@ export default function Services() {
       <div onClick={handleHoverEffect} id='services' className="container-fluid m-0 bg-black py-2">
         <div className="services mx-auto w-100 p-0">
           <MainHeading value={"My Quality Services"} className={"text-center animate-text-up"} />
-          <Tagline className={"text-center"} />
+          <Tagline className={"text-center mb-5"} />
           {/* my services */}
           <div ref={serviceRowRef} id='services-row' className="container-fluid overflow-hidden m-0 w-100">
             <div ref={overlayRef} className="bg-overlay"></div>

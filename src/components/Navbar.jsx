@@ -26,6 +26,7 @@ export default function Navbar (){
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // navbar bounce
   useGSAP(() => {
     if (isScrolled) {
       gsap.fromTo(
@@ -40,10 +41,30 @@ export default function Navbar (){
       );
     }
   }, [isScrolled]);
+
+  // navbar collapse height animation
+
+    useEffect(() => {
+      if(!collapsed){
+      gsap.to(".navbar-collapse", {
+        height: window.innerHeight,
+        duration: 1,
+        ease: "power1.out"
+      })
+    }
+    else{
+      gsap.to(".navbar-collapse", {
+        height: 0,
+        duration: 1,
+        ease: "power1.out",
+      })
+    }
+    }, [collapsed])
   
+
   const scrollWithOffset = (el) => {
     const yCoordinate = el.getBoundingClientRect().top + window.pageYOffset;
-    window.scrollTo({ top: yCoordinate - 120});
+    window.scrollTo({ top: yCoordinate - 100});
   };
 
   return (
@@ -58,17 +79,17 @@ export default function Navbar (){
         <div className="d-flex nav-item-container m-0 p-0">
           <div className="collapse w-md-100 me-lg-4 ms-auto navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav gap-lg-3 gap-xl-4 mb-2 ms-auto mb-lg-0">
-              <li className="nav-item mx-1">
+              <li onClick={() => setCollapsed(true)} className="nav-item mx-1">
                 <Link smooth scroll={scrollWithOffset} to={'#services'}
                   className="nav-link text-white active fw-semibold"
                 >Services</Link>
               </li>
-              <li className="nav-item mx-1">
+              <li onClick={() => setCollapsed(true)} className="nav-item mx-1">
               <Link smooth scroll={scrollWithOffset} to={'#portfolio'}
                   className="nav-link text-white active fw-semibold"
                 >Works</Link>
               </li>
-              <li className="nav-item mx-1">
+              <li onClick={() => setCollapsed(true)} className="nav-item mx-1">
               <Link smooth scroll={scrollWithOffset} to={'#resume'}
                   className="nav-link text-white active fw-semibold"
                 >Resume</Link>

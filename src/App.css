@@ -145,7 +145,7 @@ ul{
     padding: 40px 0px;
     position: absolute;
     top: 100%;
-    height: calc(100vh - 100%);
+    /* height: calc(100vh - 100%); */
     left: 0px;
     right: 0px !important;
     background-color: var(--global-color-secondary);

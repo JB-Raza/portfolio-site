@@ -28,7 +28,7 @@ export const ServiceCard = ({ index, title, className }) => {
         <div ref={cardRef} className={`row service-card py-2 py-lg-4 justify-content-center d-flex ${className}`}>
             <div className="col d-flex align-items-center gap-2 gap-lg-3 theme-text-color">
                 <div className="count color-primary fw-bold fs-4">{index}</div>
-                <h2 className='fw-bold normal-large-text text-nowrap'>{title}</h2>
+                <h2 className='fw-bold normal-large-text'>{title}</h2>
             </div>
             {/* hide over md */}
             <div className="col col-1 d-flex d-md-none align-items-center justify-content-center">
