@@ -76,19 +76,27 @@ export default function Navbar() {
           mail@garolddesign.com
         </address>
         <div className="d-flex nav-item-container align-items-center m-0 p-0">
+          {/* navlinks */}
           <div className="collapse w-md-100 me-lg-4 ms-auto navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav gap-lg-3 gap-xl-4 mb-2 ms-auto mb-lg-0">
-              <li onClick={() => setCollapsed(true)} className="nav-item mx-1">
-                <Link smooth scroll={scrollWithOffset} to={'#services'}
+
+
+
+
+              <li
+                className="nav-item mx-1">
+                <Link
+                  smooth scroll={scrollWithOffset} to={'#services'}
                   className="nav-link text-white active fw-semibold"
                 >Services</Link>
               </li>
-              <li onClick={() => setCollapsed(true)} className="nav-item mx-1">
+
+              <li className="nav-item mx-1">
                 <Link smooth scroll={scrollWithOffset} to={'#portfolio'}
                   className="nav-link text-white active fw-semibold"
                 >Works</Link>
               </li>
-              <li onClick={() => setCollapsed(true)} className="nav-item mx-1">
+              <li className="nav-item mx-1">
                 <Link smooth scroll={scrollWithOffset} to={'#resume'}
                   className="nav-link text-white active fw-semibold"
                 >Resume</Link>
