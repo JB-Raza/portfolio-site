@@ -105,7 +105,7 @@ export const WorkCard = ({ workData }) => {
     return (
         <div ref={workCardRef} className="col col-12 col-md-6 py-3 p-sm-3">
             <div className="card border-0 rounded-3 position-relative">
-                <img src={workData.image} alt="" className="img-fluid" />
+                <img loading="lazy" src={workData.image} alt="" className="img-fluid" />
                 <div ref={popupRef} className="card-popup">
                     <div className="card-head d-flex justify-content-between">
                         <h3 className="card-title text-white">{workData.title}</h3>
@@ -181,7 +181,7 @@ export const SkillCard = ({ skillData }) => {
     return (
         <div ref={cardRef} className="card border-0 skill-card d-flex flex-column gap-3 rounded-5 bg-transparent">
             <div className="head py-4 rounded-4">
-                <img src={skillData.image} alt="" className="img-fluid" />
+                <img loading="lazy" src={skillData.image} alt="" className="img-fluid" />
                 <p className="percentage fw-bold fs-4 m-0">{skillData.percent}%</p>
             </div>
             <p className="color-primary small-text fw-semibold text-center">{skillData.title}</p>
@@ -194,7 +194,7 @@ export const TestimonialCard = ({ testimonial }) => {
     return (
         <div className="card testimonial-card p-3 rounded-4">
             <div className="card-img-top">
-                <img className='img-fluid' src={testimonial.image} alt="image" />
+                <img loading="lazy" className='img-fluid' src={testimonial.image} alt="image" />
             </div>
             <div className="card-body px-1">
                 <div className="testimonial-icon">
@@ -234,7 +234,7 @@ export const BlogCard = ({ blog }) => {
             {/* card 1 */}
             <div className="card mx-auto blog-card border-0">
                 <div className="card-img-top">
-                    <img src={blog.image} alt="" className="img-fluid w-100 rounded-4" />
+                    <img loading="lazy" src={blog.image} alt="" className="img-fluid w-100 rounded-4" />
                 </div>
                 <span className="badge fw-normal badge rounded-pill">SAAS</span>
                 <div className="card-body">

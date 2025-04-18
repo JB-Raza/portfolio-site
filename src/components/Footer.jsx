@@ -4,7 +4,7 @@ export default function Footer() {
   return (
     <div className='container-fluid'>
       <footer className=" d-flex flex-column mx-auto align-items-center">
-        <img src="./logo-primary.webp" alt="" className="img-fluid logo" />
+        <img loading="lazy" src="./logo-primary.webp" alt="" className="img-fluid logo" />
 
         <div className="navbar mt-4">
           <ul className="footer-nav d-flex flex-wrap justify-content-center gap-3 gap-md-5">

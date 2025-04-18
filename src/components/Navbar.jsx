@@ -70,7 +70,7 @@ export default function Navbar() {
     <nav ref={navbarRef} className={`navbar navbar-expand-lg p-0 my-3 px-xl-5 ${isScrolled ? "scrolled" : ""}`}>
       <div className="container-fluid w-100 mx-auto d-flex justify-content-between py-0">
         <a className="navbar-brand py-3" href="#">
-          <img src="./logo-primary.webp" alt="logo" className="img-fluid logo w-100" />
+          <img loading="lazy" src="./logo-primary.webp" alt="logo" className="img-fluid logo w-100" />
         </a>
         <address className="email focus-text my-auto fw-semibold ms-lg-1 ms-xl-2 me-auto text-white d-none d-md-block">
           mail@garolddesign.com
