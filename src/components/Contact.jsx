@@ -97,6 +97,10 @@ useGSAP(() => {
       window.removeEventListener("click", closeDropdown);
     };
   }, []);
+  const handleDropdownItemClick = (val) => {
+    setSelectVal(val)
+    setIsSelectOpen(false)
+  }
 
   return (
     <div className="container-fluid py-2 w-100 bg-black">
@@ -106,7 +110,7 @@ useGSAP(() => {
           <MainHeading value={"Let’s work together!"} />
           <p ref={paraRef} className="small-font theme-text-color mx-auto lh-sm">I design and code beautifully simple things and i love what i do. Just simple like that!</p>
 
-          <form className='my-5'>
+          <form className='my-5' onSubmit={(e) => e.preventDefault()}>
             <div className="mb-3 d-flex flex-column flex-sm-row gap-3">
               <input type="text" className="form-control" id="firstName" aria-describedby="first name" placeholder='First Name' />
               <input type="text" className="form-control" id="lastName" aria-describedby="last name" placeholder='Last Name' />
@@ -124,11 +128,11 @@ useGSAP(() => {
               <i className={`fa fa-angle-down small-text theme-text-color select-icon-rotate`}></i>
               <input value={selectVal} type="hidden" />
               <ul className={`custom-dropdown bg-white rounded-2 flex-column gap-2 px-3 py-2 ${isSelectOpen? "d-flex":"d-none"}`}>
-                <li onClick={() => setSelectVal("")} className='fw-bold'>-Please choose an option-</li>
-                <li onClick={() => setSelectVal("Branding Design")} className=''>Branding Design</li>
-                <li onClick={() => setSelectVal("Web Design")}>Web Design</li>
-                <li onClick={() => setSelectVal("UI/IX Design")}>UI/UX Design</li>
-                <li onClick={() => setSelectVal("App Design")}>App Design</li>
+                <li onClick={() => handleDropdownItemClick("")} className='fw-bold'>-Please choose an option-</li>
+                <li onClick={() => handleDropdownItemClick("Branding Design")} className=''>Branding Design</li>
+                <li onClick={() => handleDropdownItemClick("Web Design")}>Web Design</li>
+                <li onClick={() => handleDropdownItemClick("UI/IX Design")}>UI/UX Design</li>
+                <li onClick={() => handleDropdownItemClick("App Design")}>App Design</li>
               </ul>
             </div>
             <div className="mb-3">

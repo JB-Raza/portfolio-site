@@ -1,4 +1,4 @@
-import { useRef } from 'react'
+import { useEffect, useRef } from 'react'
 
 import gsap from 'gsap'
 import { useGSAP } from '@gsap/react'
@@ -55,6 +55,8 @@ export const ServiceCard = ({ index, title, className }) => {
 export const WorkCard = ({ workData }) => {
 
     let workCardRef = useRef()
+    let popupRef = useRef()
+
     useGSAP(() => {
         gsap.from(workCardRef.current, {
             opacity: 0,
@@ -71,11 +73,40 @@ export const WorkCard = ({ workData }) => {
         })
     }, [])
 
+    useEffect(() => {
+        const card = workCardRef.current
+        const popup = popupRef.current
+
+        const handleEnter = () => {
+            gsap.fromTo(
+                popup,
+                { bottom: 15 },
+                { bottom: 30, duration: 0.1, ease: "power3.out" }
+            );
+        };
+        const handleLeave = () => {
+            gsap.to(popup, {
+                bottom: 15,
+                duration: 0.1,
+                ease: "power3.in"
+            });
+        };
+        card.addEventListener("mouseenter", handleEnter)
+        card.addEventListener("mouseleave", handleLeave)
+        return () => {
+            card.removeEventListener("mouseenter", handleEnter)
+            card.removeEventListener("mouseleave", handleLeave)
+        };
+    }, []);
+
+
+
+
     return (
         <div ref={workCardRef} className="col col-12 col-md-6 py-3 p-sm-3">
             <div className="card border-0 rounded-3 position-relative">
                 <img src={workData.image} alt="" className="img-fluid" />
-                <div className="card-popup">
+                <div ref={popupRef} className="card-popup">
                     <div className="card-head d-flex justify-content-between">
                         <h3 className="card-title text-white">{workData.title}</h3>
                         <i className='fa fa-arrow-up theme-text-color fs-4'></i>
@@ -121,7 +152,7 @@ export const QualificationCard = ({ data, type }) => {
         })
     }, [])
     return (
-        <div ref={type == "exp"? cardRefExp: cardRefEdu} className={`card mx-auto mx-md-0 col col-11 exp-education-card border-0 d-flex flex-column gap-1 rounded-4 ${type == "exp" ? "expCard" : "eduCard"}`}>
+        <div ref={type == "exp" ? cardRefExp : cardRefEdu} className={`card mx-auto mx-md-0 col col-11 exp-education-card border-0 d-flex flex-column gap-1 rounded-4 ${type == "exp" ? "expCard" : "eduCard"}`}>
             <p className="fw-bold fs-5 mb-0 color-primary">{data.date}</p>
             <h3 className='text-white fw-bold fs-3'>{data.title}</h3>
             <p className="theme-text-color fw-semibold small-text">{data.place}</p>
@@ -158,22 +189,22 @@ export const SkillCard = ({ skillData }) => {
     )
 }
 
-// testinomial
-export const TestinomialCard = ({ testinomial }) => {
+// testimonial
+export const TestimonialCard = ({ testimonial }) => {
     return (
-        <div className="card testinomial-card p-3 rounded-4">
+        <div className="card testimonial-card p-3 rounded-4">
             <div className="card-img-top">
-                <img className='img-fluid' src={testinomial.image} alt="image" />
+                <img className='img-fluid' src={testimonial.image} alt="image" />
             </div>
             <div className="card-body px-1">
-                <div className="testinomial-icon">
+                <div className="testimonial-icon">
                     <i className="fa-solid fa-caret-left color-primary fs-1"></i><i className="fa-solid fa-caret-right color-primary fs-1"></i>
                 </div>
-                <p className="small-font theme-text-color mt-3">{testinomial.description}</p>
+                <p className="small-font theme-text-color mt-3">{testimonial.description}</p>
             </div>
             <div className="px-1 mt-auto">
-                <h3 className="card-title fw-bolder text-white normal-font">{testinomial.name}</h3>
-                <p className="designation theme-text-color small-font">{testinomial.designation}</p>
+                <h3 className="card-title fw-bolder text-white normal-font">{testimonial.name}</h3>
+                <p className="designation theme-text-color small-font">{testimonial.designation}</p>
             </div>
         </div>
     )

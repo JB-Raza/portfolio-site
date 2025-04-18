@@ -76,22 +76,22 @@ export default function Hero() {
 
       <div className="row mx-3 d-flex justify-center align-items-center row-cols-1 row-cols-sm-2 row-cols-lg-4 my-4 ">
           {/* col 1 */}
-          <div className="col d-flex align-items-center gap-3">
+          <div className="col d-flex my-1 my-sm-3 justify-content-center justify-content-lg-start align-items-center gap-3">
             <h2 className='text-white xl-large-font fw-bolder'>14</h2>
             <span className='small-font theme-text-color'>Years of <br /> Exprerience</span>
           </div>
           {/* col 2 */}
-          <div className="col d-flex align-items-center gap-3">
+          <div className="col d-flex my-1 my-sm-3 justify-content-center justify-content-lg-start align-items-center gap-3">
             <h2 className='text-white xl-large-font fw-bolder'>50+</h2>
             <span className='small-font theme-text-color'>Projects <br /> Completed</span>
           </div>
           {/* col 3 */}
-          <div className="col d-flex align-items-center gap-3">
+          <div className="col d-flex my-1 my-sm-3 justify-content-center justify-content-lg-start align-items-center gap-3">
             <h2 className='text-white xl-large-font fw-bolder'>1.5K</h2>
             <span className='small-font theme-text-color'>Happy <br /> Clients</span>
           </div>
           {/* col 4 */}
-          <div className="col d-flex align-items-center  gap-3">
+          <div className="col d-flex my-1 my-sm-3 justify-content-center justify-content-lg-start align-items-center gap-3">
             <h2 className='text-white xl-large-font fw-bolder'>14</h2>
             <span className='small-font theme-text-color'>Years of <br /> Exprerience</span>
           </div>

@@ -43,13 +43,12 @@ export default function Navbar() {
   }, [isScrolled]);
 
   // navbar collapse height animation
-
   useEffect(() => {
     if (!collapsed) {
       gsap.to(".navbar-collapse", {
         height: window.innerHeight,
         duration: 1,
-        ease: "power1.out"
+        ease: "power1.out",
       })
     }
     else {
@@ -68,7 +67,7 @@ export default function Navbar() {
   };
 
   return (
-    <nav ref={navbarRef} className={`navbar navbar-expand-lg p-0 my-3 overflow-hidden px-xl-5 ${isScrolled ? "scrolled" : ""}`}>
+    <nav ref={navbarRef} className={`navbar navbar-expand-lg p-0 my-3 px-xl-5 ${isScrolled ? "scrolled" : ""}`}>
       <div className="container-fluid w-100 mx-auto d-flex justify-content-between py-0">
         <a className="navbar-brand py-3" href="#">
           <img src="./logo-primary.webp" alt="logo" className="img-fluid logo w-100" />
@@ -102,7 +101,7 @@ export default function Navbar() {
               <li className="nav-item mx-1">
                 <Link smooth scroll={scrollWithOffset} to={'#testimonial'}
                   className="nav-link text-white active fw-semibold"
-                >Testinomials</Link>
+                >testimonials</Link>
               </li>
               <li className="nav-item mx-1">
                 <Link smooth scroll={scrollWithOffset} to={'#contact'}
